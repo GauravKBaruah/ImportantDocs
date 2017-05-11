@@ -9,23 +9,68 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Install git-lfs. 
 
-In Mac you either need *brewer* and  in terminal run : ** brew install git-lfs**.
-if you have large **.RData** files, github allows you to handle such files using *git-lfs*. The steps needed to follow (that i often forget and hence this document) are below :
+In Mac you either need *brewer*. You need to go to the terminal and run : `brew install git-lfs`.
+if you have large **`.RData`** files, github allows you to handle such files using *git-lfs*. The steps needed to follow (that i often forget and hence this document) are below :
 
+Firstly it is needed that you go to the repository first where your big files are that github complained. Suppose, the big files that are in your repository are `.RData`
 
+```
+git lfs track '*.RData'
 
-
-
-```{r cars}
-summary(cars)
 ```
 
-## Including Plots
+This command will tell *git-lfs* to track all the files with `*.RData` pattern. Now the next step is to see files that are tracked. To do that run :
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+
+```
+git lfs track
+git lfs ls-files
+
+```
+The list will however be currently empty. This is because it is not yet committed. TO do that the next step is to add:
+
+
+```
+git add .gitattributes "*.RData"
+
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Now `git status` will look like 
+
+```
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   .RData
+	new file:   .gitattributes
+	modified:   EWS.genvar0.02.RData
+	modified:   EWS.genvar0.06.RData
+	modified:   EWS.genvar0.1.RData
+	modified:   EWS.genvar0.2.RData
+	modified:   EWS.genvar0.3.RData
+	modified:   EWS.genvar0.4.RData
+	modified:   EWS.genvar0.5.RData
+	modified:   EWS.genvar0.6.RData
+
+
+
+```
+
+And finally we can start tracking and committing the new files as:
+
+````
+git commit -m "Files Added tada"
+
+````
+
+
+And to see whether they are being tracked, run :
+
+```
+git lfs ls-files
+
+```
