@@ -1,6 +1,8 @@
 # ImportantDocs
 
 --- 
-title : Important stuff for managing large R files in github
+title : "Important stuff for managing large R files in github"
 author : Gaurav Baruah
-output
+highlight : zenburn
+output: md_document
+---
