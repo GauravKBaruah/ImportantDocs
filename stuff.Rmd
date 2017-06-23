@@ -9,8 +9,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Install git-lfs. 
 
-In Mac you either need *brewer*. You need to go to the terminal and run : `brew install git-lfs`.
-if you have large **`.RData`** files, github allows you to handle such files using *git-lfs*. The steps needed to follow (that i often forget and hence this document) are below :
+In Mac you need *brewer*. You need to go to the terminal and run : `brew install git-lfs`.
+if you have large files for example of this particular extension : **`.RData`** files, github allows you to handle such files using *git-lfs*. The steps needed to follow (that i often forget and hence this document) are below :
 
 Firstly it is needed that you go to the repository first where your big files are that github complained. Suppose, the big files that are in your repository are `.RData`
 
